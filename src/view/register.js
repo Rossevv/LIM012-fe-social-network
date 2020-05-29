@@ -33,6 +33,8 @@ export default () => {
     const divElemt = document.createElement('div');
     divElemt.innerHTML = viewRegister;    
 
+    document.querySelector('#')
+
     const btnRegister = divElemt.querySelector('#btn-register');
     btnRegister.addEventListener('click', (e) => {
         e.preventDefault(); //cancelar el evento de reinicio de formulario
