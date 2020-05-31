@@ -36,7 +36,6 @@ export const authSignIn = (emailLogin, passwordLogin) => {
     });
 };
 
-
 // AUTENTICACIÓN CON GOOGLE
 export const authSignInGoogle = () => {
   signInGoogle()
@@ -91,10 +90,11 @@ export const authSignInFacebook = () => {
     });
 };
 
+// CERRAR SESIÓN
 export const signOutUser = () => {
   signOut()
     .then((resp) => {
-      console.log('Saliendo...!');
+      console.log('Saliendo...!', resp);
     })
     .catch((error) => {
       console.log(error);

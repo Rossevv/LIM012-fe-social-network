@@ -1,9 +1,9 @@
 // REGISTRO DE USUARIO
-export const signUp = (emailRegister, passwordRegister) => {
-  firebase.auth().createUserWithEmailAndPassword(emailRegister, passwordRegister);
-};
+// eslint-disable-next-line max-len
+export const signUp = (emailRegister, passwordRegister) => firebase.auth().createUserWithEmailAndPassword(emailRegister, passwordRegister);
 
 // INICIO DE SESIÓN
+// eslint-disable-next-line max-len
 export const signIn = (emailLogin, passwordLogin) => firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin);
 
 // CERRAR SESIÓN

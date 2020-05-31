@@ -4,7 +4,6 @@ import {
   authSignInFacebook,
   signOutUser,
 } from '../controller/controller-autentication.js';
-import { signOut } from '../model/model-authentication.js';
 
 export default () => {
   const viewLogin = `
@@ -14,10 +13,11 @@ export default () => {
         <h1 class="delivery-drone">Delivery Drone</h1>
         <h6 class="safetyHome"> STAY HOME, STAY SAFE</h6>
       </div>
+      <form id="form">
       <div class="container-form flex column">
-        <div class="data-register flex column">
+        <div class="data-register flex column" id="divBtn">
           <div class="inputs-form">
-            <input class="email" id="email-login" type="email" placeholder="E-mail">
+            <input class="email" id="email-login" type="email" placeholder="E-mail" >
             <input class="password" id="password-login" type="password" placeholder="Password">
           </div>
           <button class="btn-form" id="btn-login">Log In</button>
@@ -33,17 +33,18 @@ export default () => {
           <a class="option" id="comment-signin" href="#/register">Sign Up</a>
         </div>
       </div>
-
+      </form>
       <h4 class="find-delivers">FIND DELIVERIES TO <br> YOU SAFELY</h4>
     </div>
   </div>`;
 
   const divElemt = document.createElement('div');
+  divElemt.id = 'main.div';
   divElemt.innerHTML = viewLogin;
 
   const btnLogin = divElemt.querySelector('#btn-login');
   btnLogin.addEventListener('click', (e) => {
-    e.preventDefault(); //cancelar el evento de reinicio de formulario
+    e.preventDefault(); // cancelar el evento de reinicio de formulario
     const emailLogin = divElemt.querySelector('#email-login').value;
     const passwordLogin = divElemt.querySelector('#password-login').value;
     console.log(emailLogin, passwordLogin);
@@ -51,19 +52,21 @@ export default () => {
     authSignIn(emailLogin, passwordLogin);
   });
 
+
   const observador = () => {
-    firebase.auth().onAuthStateChanged(function (user) {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log('Existe Usuario Activo');
+        // *********************
         // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
-        // ...
+        // const displayName = user.displayName;
+        // const email = user.email;
+        // const emailVerified = user.emailVerified;
+        // const photoURL = user.photoURL;
+        // const isAnonymous = user.isAnonymous;
+        // const uid = user.uid;
+        // const providerData = user.providerData;
+        // *********************
       } else {
         // User is signed out.
         console.log('No existe Usuario Activo');
@@ -73,7 +76,7 @@ export default () => {
   observador();
 
   // CERRAR SESIÓN 'funcion para boton singOut'
-  const btnCerrar = divElemt.querySelector('#btn-cerrar')
+  const btnCerrar = divElemt.querySelector('#btn-cerrar');
   btnCerrar.addEventListener('click', (e) => {
     e.preventDefault();
     signOutUser();
@@ -82,7 +85,7 @@ export default () => {
   // INICIO DE SESIÓN CON GOOGLE
   const btnGoogle = divElemt.querySelector('#google-login');
   btnGoogle.addEventListener('click', (e) => {
-    e.preventDefault(); //cancelar el evento de reinicio de formulario
+    e.preventDefault(); // cancelar el evento de reinicio de formulario
     console.log('Google Prueba');
     authSignInGoogle();
   });
@@ -90,7 +93,7 @@ export default () => {
   // INICIO DE SESIÓN CON FACEBOOK
   const btnFacebook = divElemt.querySelector('#facebook-login');
   btnFacebook.addEventListener('click', (e) => {
-    e.preventDefault(); //cancelar el evento de reinicio de formulario
+    e.preventDefault(); // cancelar el evento de reinicio de formulario
     console.log('Facebook Prueba');
     authSignInFacebook();
   });

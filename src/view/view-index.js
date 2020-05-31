@@ -1,13 +1,14 @@
-import Home from './home.js'
-import Register from './register.js'
-import Login from './login.js'
-import errorMessage from './error.js'
+import home from './home.js';
+import register from './register.js';
+import login from './login.js';
+import error from './error.js';
 
-const componentsView = {
-    home: Home,
-    register: Register,
-    login: Login,
-    error: errorMessage,
-}
+const views = {
+  home,
+  register,
+  login,
+  error,
+};
 
-export { componentsView };
+
+export { views };
