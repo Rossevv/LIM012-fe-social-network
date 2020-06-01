@@ -1,13 +1,10 @@
-// trayendo las rutas
-import { changeView } from './view-controller/router.js';
-// Para cambiar la URL
+/* eslint-disable import/no-unresolved */
+
+import { changeView } from './router.js';
+
 const init = () => {
   changeView(window.location.hash);
-  // El evento hashchange es ejecutado cuando el fragmento identificador
-  // de la URL ha cambiado (la parte de la URL que continúa despues del simbolo #,
-  // incluyendo el símbolo #).
   window.addEventListener('hashchange', () => {
-    // traer la ruta despues del Hash
     changeView(window.location.hash);
   });
 };
