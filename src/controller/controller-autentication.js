@@ -1,3 +1,7 @@
+/* eslint-disable no-console */
+// eslint-disable-next-line import/no-cycle
+import { componentsView } from '../view/view-index.js';
+
 import {
   signUp,
   signIn,
@@ -23,6 +27,7 @@ export const registerNewUser = (emailRegister, passwordRegister) => {
 
 // INICIAR SESIÓN
 export const authSignIn = (emailLogin, passwordLogin) => {
+  const view = componentsView.logIn();
   signIn(emailLogin, passwordLogin)
     .then((userCredential) => {
       console.log('Usted ya ingreso, ya esta logeadx', userCredential);
@@ -30,10 +35,16 @@ export const authSignIn = (emailLogin, passwordLogin) => {
     })
     .catch((error) => {
       // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
+      let message = '';
+      if (error.code === 'auth/invalid-email') {
+        message = 'Contraseña o correo inválido';
+      } else if (error.message === 'auth/user-not-found') {
+        message = 'usario no extiste';
+      } else if (error.code === 'auth/invalid-password') {
+        message = 'revise su contraseña';
+      }
+      const logInForm = view.querySelector('.inputs-form');
+      logInForm.outerHTML += `<span class="spanOuter">${message}</span>`;
     });
 };
 

@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable import/no-cycle */
+/* eslint-disable no-useless-escape */
 import {
   authSignIn,
   authSignInGoogle,
@@ -40,11 +43,22 @@ export default () => {
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewLogin;
 
+  const validateEmail = (email) => {
+    // para validar que ingrese un email de acuerdo a su sintaxis
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
   const btnLogin = divElemt.querySelector('#btn-login');
   btnLogin.addEventListener('click', (e) => {
     e.preventDefault(); // cancelar el evento de reinicio de formulario
     const emailLogin = divElemt.querySelector('#email-login').value;
     const passwordLogin = divElemt.querySelector('#password-login').value;
+    const validateSintaxEmail = validateEmail(emailLogin);
+    if (!validateSintaxEmail) {
+      const inputsForm = divElemt.querySelector('.inputs-form');
+      inputsForm.outerHTML += '<span class="spanOuter">Email inválido</span>';
+      return;
+    }
     console.log(emailLogin, passwordLogin);
     // Acceso de usuarios existentes
     authSignIn(emailLogin, passwordLogin);
