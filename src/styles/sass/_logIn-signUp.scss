@@ -6,11 +6,12 @@ body {
     display: flex;    
     align-items: center;
     justify-content: center;
-    color: white;
+    color: yellowgreen;
 }
 
+
 h1 {
-    color: white;
+    color: brown;
     margin: 0;
     font-size: 30px;
 }
@@ -48,7 +49,7 @@ h6 {
 
 .content {
     margin: 0;
-    background-image: url(/src/assets/bg-mobile.png);
+    background-image: url(/assets/bg-mobile.png);
     width: 362px;
     height: 640px;
     background-position: center;
@@ -87,6 +88,15 @@ h6 {
     font-size: 13px;
     font-weight: 300;
     letter-spacing: 0.7px;
+}
+
+.spanOuter {
+    display : flex ;
+    color : black ;
+    font-size : 0.9375rem ;
+    margin-top : 1.125rem ;
+    justify-content : center ;
+    font-family : $main-font ;
 }
 
 .btn-form {
@@ -146,7 +156,7 @@ div .option {
         margin: 0;
     }
     .content {
-        background-image: url(/src/assets/bg-mobile.png);
+        background-image: url(/assets/bg-mobile.png);
         width: 700px;
         height: 900px;
         background-position: center;
@@ -164,7 +174,7 @@ div .option {
         margin: 0;
     }
     .content {
-        background-image: url(/src/assets/bg-desktop.png);
+        background-image: url(/assets/bg-desktop.png);
         width: 1440px;
         height: 1024px;
         background-position: center;

@@ -1,4 +1,6 @@
-import { views } from './view/view-index.js';
+import { views } from './views/index.js';
+import { logInAutentication, signUpAutentication } from './controllers/controller-autentication.js';
+
 
 const changeView = (route) => {
   // console.log(route);
@@ -7,8 +9,8 @@ const changeView = (route) => {
   switch (route) {
     case '':
     case '#':
-    case '#/': { return container.appendChild(views.login()); }
-    case '#/register': { return container.appendChild(views.register()); }
+    case '#/': { return container.appendChild(logInAutentication()); }
+    case '#/register': { return container.appendChild(signUpAutentication()); }
     case '#/home': { return container.appendChild(views.home()); }
     default:
       return container.appendChild(views.error());

@@ -1,4 +1,4 @@
-import { example } from '../src/example.js';
+// import { example } from '../src/example.js';
 
 describe('example', () => {
   it('debería ser una función', () => {

@@ -1,7 +1,3 @@
-import {
-  registerNewUser,
-  authSignInGoogle,
-} from '../controller/controller-autentication.js';
 
 export default () => {
   const viewRegister = `
@@ -18,12 +14,12 @@ export default () => {
             <input class="email" id="email-register" type="email" placeholder="E-mail">
             <input class="password" id="password-register" type="password" placeholder="Password">
           </div>
-          <button class="btn-form" id="btn-register">Register</button>
+          <button class="btn-form" id="btn-register">Sign up</button>
         </div>
         <p class="txt-register">Or</p>
         <div class="options-register">
-          <img class="logo-fb" src="assets/fb.png" alt="" id="facebook-register">
-          <img class="logo-google" src="assets/gg.png" alt="" id="google-register">
+          <img class="logo-fb" src="/assets/fb.png" alt="" id="facebook-register">
+          <img class="logo-google" src="/assets/gg.png" alt="" id="google-register">
         </div>
         <div class="ask-option flex">
           <p class="question" id="comment-register">If you have an account</p>
@@ -37,24 +33,6 @@ export default () => {
 
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewRegister;
-
-  // REGISTRAR USUARIO
-  const btnRegister = divElemt.querySelector('#btn-register');
-  btnRegister.addEventListener('click', (e) => {
-    e.preventDefault(); // cancelar el evento de reinicio de formulario
-    const emailRegister = divElemt.querySelector('#email-register').value;
-    const passwordRegister = divElemt.querySelector('#password-register').value;
-    console.log(emailRegister, passwordRegister);
-    registerNewUser(emailRegister, passwordRegister);
-  });
-
-  // INICIO DE SESIÓN CON GOOGLE
-  const btnGoogle = divElemt.querySelector('#google-register');
-  btnGoogle.addEventListener('click', (e) => {
-    e.preventDefault(); // cancelar el evento de reinicio de formulario
-    console.log('Google Prueba - register');
-    authSignInGoogle();
-  });
 
   return divElemt;
 };
