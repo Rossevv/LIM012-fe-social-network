@@ -477,6 +477,7 @@ a {
   text-align: center;
   cursor: pointer;
   white-space: nowrap;
+  z-index: 1;
 }
 
 .buttonCounter {
