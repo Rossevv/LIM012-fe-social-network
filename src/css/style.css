@@ -231,11 +231,6 @@ input:-webkit-autofill:active {
   object-fit: cover;
 }
 
-.photo-medium img {
-  height: 106px;
-  width: 106px;
-}
-
 .border {
   border-color: white;
   border-style: solid;
@@ -775,6 +770,11 @@ div #ctn-privacy {
   .margin-bottom-m {
     margin-bottom: 7px !important;
   }
+}
+
+.photo-medium img {
+  height: 106px;
+  width: 106px;
 }
 
 @media (max-width: 992px) and (min-width: 601px) {
