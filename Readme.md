@@ -80,3 +80,4 @@ Bienvenido(a) a la realización de esta red social, cuya temática es implementa
 * [ ] Nomenclatura / Semántica
 * [ ] Linting
 
+Realizado por 3 maravillosasa chicas.
